@@ -150,7 +150,7 @@ form.addEventListener("submit", async (event) => {
     showMessage("Não foi possível agendar agora. Tente novamente em alguns instantes.");
   } finally {
     submitButton.disabled = false;
-    submitButton.querySelector("span").textContent = "Confirmar agendamento";
+    submitButton.querySelector("span").textContent = "Confirmar reserva";
   }
 });
 
@@ -211,8 +211,10 @@ function renderBookingCard(booking) {
   card.className = "booking-card";
 
   card.innerHTML = `
-    <div class="booking-card__stamp">
-      <span class="booking-card__stamp-time">${formatTime(booking.start_time)}<br>–<br>${formatTime(booking.end_time)}</span>
+    <div class="booking-card__time">
+      <span>${formatTime(booking.start_time)}</span>
+      <span>–</span>
+      <span>${formatTime(booking.end_time)}</span>
     </div>
     <div class="booking-card__body">
       <p class="booking-card__name">${escapeHtml(booking.name)}</p>
