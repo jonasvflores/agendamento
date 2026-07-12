@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Biblioteca Príncipe da Paz · Agendamento</title>
+<title>Biblioteca · Colégio Príncipe da Paz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,16 +14,22 @@
   <div class="page">
 
     <header class="header">
-      <div class="header__rule"></div>
-      <p class="header__eyebrow">Agendamento de salas</p>
-      <h1 class="header__title">Biblioteca<br>Príncipe da Paz</h1>
-      <p class="header__subtitle">Reserve um horário para estudar, trabalhar em grupo ou dar aula.</p>
+      <div class="crest">
+        <svg class="crest__crown" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 44 L4 22 L14 30 L22 12 L32 26 L42 12 L50 30 L60 22 L60 44 Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" fill="none"/>
+          <line x1="4" y1="44" x2="60" y2="44" stroke="currentColor" stroke-width="3"/>
+        </svg>
+      </div>
+      <p class="header__eyebrow">Colégio Príncipe da Paz</p>
+      <h1 class="header__title">Biblioteca</h1>
+      <p class="header__subtitle">Reserve seu horário para estudar, trabalhar em grupo ou dar aula.</p>
     </header>
 
     <main class="content">
 
       <section class="card card--form" aria-labelledby="form-title">
-        <h2 id="form-title" class="card__title">Novo agendamento</h2>
+        <div class="card__ribbon">Ficha de reserva</div>
+        <h2 id="form-title" class="card__title">Reservar um horário</h2>
 
         <form id="booking-form" novalidate>
 
@@ -66,8 +72,12 @@
 
           <p class="form-message" id="form-message" role="alert" hidden></p>
 
-          <button type="submit" class="stamp-button" id="submit-button">
-            <span>Confirmar agendamento</span>
+          <button type="submit" class="seal-button" id="submit-button">
+            <svg class="seal-button__icon" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 44 L4 22 L14 30 L22 12 L32 26 L42 12 L50 30 L60 22 L60 44 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round" fill="none"/>
+              <line x1="4" y1="44" x2="60" y2="44" stroke="currentColor" stroke-width="4"/>
+            </svg>
+            <span>Confirmar reserva</span>
           </button>
 
         </form>
@@ -75,18 +85,21 @@
 
       <section class="card card--list" aria-labelledby="list-title">
         <div class="card__header-row">
-          <h2 id="list-title" class="card__title">Horários agendados</h2>
+          <div>
+            <div class="card__ribbon card__ribbon--muted">Registro</div>
+            <h2 id="list-title" class="card__title">Próximos horários</h2>
+          </div>
           <button class="refresh-button" id="refresh-button" title="Atualizar lista" aria-label="Atualizar lista">↻</button>
         </div>
 
-        <div id="bookings-status" class="list-status">Carregando agendamentos…</div>
+        <div id="bookings-status" class="list-status">Carregando horários…</div>
         <div id="bookings-list" class="bookings-list"></div>
       </section>
 
     </main>
 
     <footer class="footer">
-      <p>Biblioteca Príncipe da Paz</p>
+      <p>Colégio Príncipe da Paz · Biblioteca</p>
     </footer>
 
   </div>
