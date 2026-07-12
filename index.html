@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Biblioteca Príncipe da Paz · Agendamento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="header">
+      <div class="header__rule"></div>
+      <p class="header__eyebrow">Agendamento de salas</p>
+      <h1 class="header__title">Biblioteca<br>Príncipe da Paz</h1>
+      <p class="header__subtitle">Reserve um horário para estudar, trabalhar em grupo ou dar aula.</p>
+    </header>
+
+    <main class="content">
+
+      <section class="card card--form" aria-labelledby="form-title">
+        <h2 id="form-title" class="card__title">Novo agendamento</h2>
+
+        <form id="booking-form" novalidate>
+
+          <label class="field">
+            <span class="field__label">Seu nome</span>
+            <input type="text" id="name" name="name" placeholder="Nome completo" required autocomplete="name">
+          </label>
+
+          <label class="field">
+            <span class="field__label">Motivo</span>
+            <select id="purpose" name="purpose" required>
+              <option value="" disabled selected>Escolha um motivo</option>
+              <option value="estudar">Estudar</option>
+              <option value="trabalho">Trabalho em grupo</option>
+              <option value="aula">Dar aula</option>
+              <option value="outro">Outro</option>
+            </select>
+          </label>
+
+          <label class="field field--other" id="purpose-other-field" hidden>
+            <span class="field__label">Qual motivo?</span>
+            <input type="text" id="purpose-other" name="purpose-other" placeholder="Descreva o motivo">
+          </label>
+
+          <label class="field">
+            <span class="field__label">Data</span>
+            <input type="date" id="date" name="date" required>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field__label">Início</span>
+              <input type="time" id="start-time" name="start-time" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Fim</span>
+              <input type="time" id="end-time" name="end-time" required>
+            </label>
+          </div>
+
+          <p class="form-message" id="form-message" role="alert" hidden></p>
+
+          <button type="submit" class="stamp-button" id="submit-button">
+            <span>Confirmar agendamento</span>
+          </button>
+
+        </form>
+      </section>
+
+      <section class="card card--list" aria-labelledby="list-title">
+        <div class="card__header-row">
+          <h2 id="list-title" class="card__title">Horários agendados</h2>
+          <button class="refresh-button" id="refresh-button" title="Atualizar lista" aria-label="Atualizar lista">↻</button>
+        </div>
+
+        <div id="bookings-status" class="list-status">Carregando agendamentos…</div>
+        <div id="bookings-list" class="bookings-list"></div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>Biblioteca Príncipe da Paz</p>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
